@@ -24,6 +24,7 @@ jobs:
       - run: |
           echo "event: ${{ github.event_name }}"
           echo "branch: ${{ github.ref }}"
+          echo "secret: ${{ secrets.GITHUB_TOKEN }}"
           
       - uses: actions/checkout@v6.0.1
 
@@ -37,7 +38,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     environment: Test
     steps:
-      - run: "Testing...."
+      - run: echo "Testing...."
       
   load-test:
     runs-on: [ubuntu-latest]
